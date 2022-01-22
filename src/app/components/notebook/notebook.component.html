@@ -1,0 +1,18 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <h3>Notebook Page {{ vm.currentPage }} of {{ vm.notebook.length }} (max: {{ maxPages }})</h3>
+
+  <app-page-form [entry]="vm.notebook[vm.currentIndex]" (entryUpdate)="saveNotebookEntry(vm.currentPage, $event)">
+  </app-page-form>
+
+  <div class="d-flex justify-content-between">
+    <div>
+      <button class="btn btn-primary me-2" *ngIf="vm.notebook.length < maxPages"
+        (click)="saveNotebookEntry(vm.notebook.length + 1)">New Page</button>
+      <button class="btn btn-danger" (click)="resetNotebook()">Reset</button>
+    </div>
+    <app-navigation [vm]="vm"></app-navigation>
+
+
+  </div>
+
+</ng-container>

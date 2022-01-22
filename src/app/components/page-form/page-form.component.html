@@ -1,0 +1,7 @@
+<form [formGroup]="form" novalidate>
+  <div class="mb-3">
+    <label for="entry" class="form-label">Please enter some text:</label>
+    <textarea id="entry" class="form-control" rows="8" formControlName="entry"
+      (keyup)="entryUpdate.emit(form.value.entry)"></textarea>
+  </div>
+</form>
